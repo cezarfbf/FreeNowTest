@@ -1,14 +1,27 @@
 package com.freenow.api.model;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
+@Entity
 public class Driver {
-	
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+
+	@Column(name = "name")
 	private String name;
+
+	@Column(name = "drive_license")
 	private String driveLicense;
+
+	@Column(name = "rating")
 	private int rating;
+
+	@Column(name = "member_since")
 	private LocalDate memberSince;
+
 	public Long getId() {
 		return id;
 	}
