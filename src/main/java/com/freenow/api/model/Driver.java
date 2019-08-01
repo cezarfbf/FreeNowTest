@@ -1,6 +1,10 @@
 package com.freenow.api.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
 import java.time.LocalDate;
 
 @Entity
@@ -10,12 +14,16 @@ public class Driver {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@NotEmpty
+	@Size(max = 80)
 	@Column(name = "name")
 	private String name;
 
+	@Size(max = 10)
 	@Column(name = "drive_license")
 	private String driveLicense;
 
+	@Min(0)
 	@Column(name = "rating")
 	private int rating;
 
